@@ -30,11 +30,11 @@ class CommentDAO:
 
 
 
-    def get_comments_by_post_id(self, pk: int) -> list[Comment]:
+    def get_comments_by_post_id(self, post_id: int) -> list[Comment]:
         """возвращает комментарии определенного поста.
     Функция должна вызывать ошибку `ValueError`
     если такого поста нет и пустой список, если у поста нет комментов. """
         comments: list[Comment] = self._load_comments()
-        comments_match: list[Comment] = [c for c in comments if c.pk == pk]
+        comments_match: list[Comment] = [c for c in comments if c.post_id == post_id]
         return comments_match
 
